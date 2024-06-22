@@ -1,0 +1,20 @@
+name: Playwright Tests
+on:
+    workflow_dispatch:
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.44.1-jammy
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: npm ci
+    - name: show env
+      run: npx envinfo --preset playwright
+    - name: Run Playwright tests
+      run: npx playwright test
+    - name: dmesg
+      run: dmesg
