@@ -15,5 +15,5 @@ jobs:
     - name: show env
       run: npx envinfo --preset playwright
     - name: Run Playwright tests
-      run: for i in {1..100}; do echo $i ; date ; HOME=/root npx playwright test || exit 1 ; done
+      run: for i in $(seq 1 100); do echo $i ; date ; HOME=/root npx playwright test || exit 1 ; done
 
