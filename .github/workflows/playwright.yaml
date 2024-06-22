@@ -15,6 +15,6 @@ jobs:
     - name: show env
       run: npx envinfo --preset playwright
     - name: Run Playwright tests
-      run: npx playwright test
+      run: HOME=/root npx playwright test
     - name: dmesg
       run: dmesg
